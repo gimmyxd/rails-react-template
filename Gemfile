@@ -67,3 +67,7 @@ end
 gem "jsbundling-rails", "~> 1.3"
 
 gem "active_model_serializers", "~> 0.10.15"
+
+gem "tailwindcss-ruby", "~> 4.1"
+
+gem "tailwindcss-rails", "~> 4.2"
