@@ -88,6 +88,8 @@ export default tseslint.config(
         {
           internalPattern: ["^@"],
           specialCharacters: "keep",
+          partitionByNewLine: true,
+          newlinesBetween: 'ignore',
         },
       ],
       "perfectionist/sort-maps": [
