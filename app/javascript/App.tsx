@@ -1,5 +1,6 @@
 import React from "react";
 import { Navigate, Route, Routes } from "react-router";
+
 import Home from "./views/home";
 
 const App = () => {
