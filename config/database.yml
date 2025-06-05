@@ -81,7 +81,7 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    url: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE_URL"] %>
+    url: <%= ENV["DATABASE_URL"] %>
     database: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE"] %>
     username: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE_USERNAME"] %>
     password: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE_PASSWORD"] %>
@@ -89,11 +89,14 @@ production:
     <<: *primary_production
     database: rails_react_template_production_cache
     migrations_paths: db/cache_migrate
+    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_cache" } if ENV["DATABASE_URL"] %>
   queue:
     <<: *primary_production
     database: rails_react_template_production_queue
     migrations_paths: db/queue_migrate
+    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_queue" } if ENV["DATABASE_URL"] %>
   cable:
     <<: *primary_production
     database: rails_react_template_production_cable
     migrations_paths: db/cable_migrate
+    url: <%= URI.parse(ENV["DATABASE_URL"]).tap { |url| url.path += "_cable" } if ENV["DATABASE_URL"] %>
