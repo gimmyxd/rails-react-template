@@ -81,8 +81,9 @@ test:
 production:
   primary: &primary_production
     <<: *default
-    database: rails_react_template_production
-    username: rails_react_template
+    url: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE_URL"] %>
+    database: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE"] %>
+    username: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE_USERNAME"] %>
     password: <%= ENV["RAILS_REACT_TEMPLATE_DATABASE_PASSWORD"] %>
   cache:
     <<: *primary_production
